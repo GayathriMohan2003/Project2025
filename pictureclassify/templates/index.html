@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            border: 2px dashed #ff9a9e;
+            background-color: #fff5f5;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #444;
+        }
+
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 15px;
+            border: 4px solid #ff4e50;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Image Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required><br>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if result %}
+            <h2>Prediction: {{ result }}</h2>
+            <img src="{{ img_path }}" alt="Uploaded Image">
+        {% endif %}
+
+        <footer>
+            Built with ❤️ using Flask, HTML, CSS and Machine Learning
+        </footer>
+    </div>
+</body>
+</html>
